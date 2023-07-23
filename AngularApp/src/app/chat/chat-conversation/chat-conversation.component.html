@@ -1,0 +1,88 @@
+<mat-grid-list [cols]="50" rowHeight="100px">
+
+    <!-- primul rand -->
+
+        <!-- poza + titlul conversatiei + mici iconite utilitare -->
+        <mat-grid-tile [colspan]="41" [rowspan]="1" [style.background]="'#8ac53f'">
+            <div class="conversation_picture_mat_grid">
+                <!-- Poza de profil -->
+                <img src="assets/happy-stickman.png" width="50" height="50">
+            </div>
+            
+            <div class="conversation_title_mat_grid">
+                <!-- Titlul Conversatiei (Numele user-ului sau Numele grupului) -->
+                <h1>Titlul conversatiei</h1>
+            </div>
+        </mat-grid-tile>
+        
+        <!-- Mici iconite pentru sunat, video, alte optiuni -->
+        <!-- https://www.angularjswiki.com/angular/angular-material-icons-list-mat-icon-list/ -->
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'phone'"></app-chat-button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'videocam'"></app-chat-button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'more_horiz'"></app-chat-button>
+        </mat-grid-tile>
+
+
+
+    <!-- al doilea rand -->
+
+        <!-- textul propriu-zis cu conversatia dintre useri -->
+        <mat-grid-tile [colspan]="50" [rowspan]="5" [style.background]="'#D3D3D3'" [style.color]="'black'">
+            <div *ngFor="let message of messages">
+                <p>{{ message }}</p>
+            </div>
+            
+        </mat-grid-tile>
+
+
+    <!-- al treilea rand -->
+
+        <!-- Mai multe iconite -->
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'add_circle'"></app-chat-button>
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'attach_file'"></app-chat-button>
+
+        </mat-grid-tile>
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <app-chat-button [icon_name]="'gif'"></app-chat-button>
+        </mat-grid-tile>
+        
+        <!-- Mai multe iconite -->
+        <mat-grid-tile [colspan]="35" [rowspan]="1" [style.background]="'white'">
+            <!-- textul introdus la tastatura -->
+            <!-- black and white color -->
+            <mat-form-field class="text_area_for_chat_message" [style.background]="'#D3D3D3'" [style.color]="'black'">
+                <textarea matInput id="textarea_chat_message_input" [(ngModel)]="newMessage" (keyup)="onKey($event)" (keyup.enter)="sendMessage()" placeholder="Message"></textarea>
+            </mat-form-field>
+
+        </mat-grid-tile>
+        
+        
+        <!-- emoji browser-ul -->
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <!-- nu sterge ngIf-ul, altfel nu mai apare iconita... -->
+            <div *ngIf="true;">
+                <app-chat-button [icon_name]="'tag_faces'"></app-chat-button>
+            </div>
+        </mat-grid-tile>
+        
+        <!-- emoji-ul conversatiei -->
+        <mat-grid-tile [colspan]="3" [rowspan]="1" [style.background]="'#8ac53f'">
+            <div class="emoji_container" *ngIf="newMessage==''; else send_message">
+                <app-chat-button [icon_name]="'thumb_up'"></app-chat-button>
+            </div>
+
+            <ng-template #send_message>
+                <app-chat-button [icon_name]="'send'" (click)="sendMessage()"></app-chat-button>
+            </ng-template>
+        </mat-grid-tile>
+
+
+</mat-grid-list>

@@ -1,0 +1,36 @@
+
+mat-card {
+    top:60%;
+    width:400px;
+    text-align:center;
+    position:fixed;
+    background-color:#8AC53F;
+   
+}
+
+.bg {
+   /* The image used */
+  background-image: url("/assets/img/Background.jpg");
+
+  /* Full height */
+  height: 100vh;
+
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+
+ h1{
+    font-size: xx-large;
+    font-weight: bold;
+ }
+
+ .img_landingpage{
+   position: absolute;
+   width: 100%;
+   background-position: center;
+   background-repeat: no-repeat;
+   background-size: cover;
+ }

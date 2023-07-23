@@ -1,0 +1,44 @@
+body {
+    height: 100%;
+  
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+
+  .form-field {
+    margin-bottom: 10px;
+  }
+  
+  .container {
+    position: absolute;
+    right: 0;
+    margin: 80px;
+    top: 30px;
+    max-width: 300px;
+    padding: 16px;
+    background-color: #8AC53F;
+  }
+  
+  .register_btn {
+    width: 265px;
+    height: 40px;
+    background-color:#000000;
+    color: rgb(255, 255, 255);
+  }
+  
+  .img_register{
+    position: absolute;
+    width: 100%;
+   }
+
+   .warning-message {
+    margin: 8px;
+    font-size: small;
+    font-weight: 300;
+    padding: 5px 10px 5px 10px;
+    background-color: rgb(243, 52, 52);
+    color: whitesmoke;
+    border-radius: 8px;
+}
